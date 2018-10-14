@@ -163,15 +163,9 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                         $query = "select * from room_type";
                         $data = mysqli_query($conn, $query);
                         while($info = mysqli_fetch_array($data)){
+                            $x = $info['image'];
                             print("<div class=\"item\"><div class=\"block-34\"><div class=\"image\">");
-                            switch($info['id']){
-                                case 1: print("<a href=\"#\"><img src=\"../images/img_1.jpg\" alt=\"Image placeholder\"></a></div>");
-                                break;
-                                case 2: print("<a href=\"#\"><img src=\"../images/img_2.jpg\" alt=\"Image placeholder\"></a></div>");
-                                break;
-                                case 3: print("<a href=\"#\"><img src=\"../images/img_3.jpg\" alt=\"Image placeholder\"></a></div>");
-                                break;
-                            }
+                            print("<a href=\"#\"><img src=\"$x\" alt=\"Image placeholder\"></a></div>");
                             print("<div class=\"text\">");
                             print("<h2 class=\"heading\">".$info['name']."</h2>");
                             print("<div class=\"price\"><sup>$</sup><span class=\"number\">".$info['cost']."</span><sub>/per night</sub></div>");
@@ -186,12 +180,12 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
 
 
                         ?>
-                     
+
 
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -240,7 +234,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                         <p>&rdquo;".$info['description']."&ldquo;</p>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
-                                        
+
                                     }
                                 ?>
 
@@ -250,7 +244,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                         </div>
                     </div>
 
-                    
+
 
 
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -274,7 +268,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                         <p>".$info['description']."</p>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
-                                        
+
                                     }
                                 ?>
 
@@ -305,7 +299,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                         <p>".$info['description']."</p>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
-                                        
+
                                     }
                                 ?>
                                 </div>
@@ -401,7 +395,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
             <div class="row mb-5">
                 <div class="col-md-6 col-lg-4">
                     <h3 class="heading-section">About Us</h3>
-                    <p class="mb-5">Jumeirah Hotels and Resorts is a well-established luxury hotel company, which has had a distinct impact on the global hospitality market for the past two decades.  Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities. 
+                    <p class="mb-5">Jumeirah Hotels and Resorts is a well-established luxury hotel company, which has had a distinct impact on the global hospitality market for the past two decades.  Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities.
 
 </p>
                 </div>

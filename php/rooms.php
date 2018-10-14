@@ -69,33 +69,27 @@
             <div class="row mb-5">
                 <?php
                     $conn = mysqli_connect("localhost", "root", "");
-                    echo "connection successfull";
                     $dbname = "id7257488_jumeriah";
                     mysqli_select_db($conn, $dbname);
-                    echo "database selection successfull";
                     $query = "select * from room_type";
                     $data = mysqli_query($conn, $query);
                     while($info = mysqli_fetch_array($data)){
                         print("<div class=\"col-md-12 mb-5\">");
                         print("<form action=\"book.php\" method=\"GET\">");
-                        
+                        $x = $info['image'];
                         print("<input type=\"hidden\" name=\"id\" value=\"".$info['id']."\" />");
                         print("<input type=\"hidden\" name=\"room\" value=\"".$info['name']."\" />");
                         print("<input type=\"hidden\" name=\"cost\" value=\"".$info['cost']."\" />");
                         print("<div class=\"block-3 d-md-flex\">");
-                        switch($info['id']){
-                            case 1: print("<div class=\"image\" style=\"background-image: url('../images/img_1.jpg'); \"></div>");
-                            print("<div class=\"text\">");
-                            break;
-                            case 2: print("<div class=\"image order-2\" style=\"background-image: url('../images/img_2.jpg'); \"></div>");
-                            print("<div class=\"text order-1\">");
-                            break;
-                            case 3: print("<div class=\"image\" style=\"background-image: url('../images/img_3.jpg'); \"></div>");
-                            print("<div class=\"text\">");
-                            break;
+
+                        if($info['id']%2 == 0){
+                          print("<div class=\"image order-2\" style=\"background-image: url($x); \"></div>");
+                          print("<div class=\"text order-1\">");
                         }
-                        
-                        
+                        else{
+                          print("<div class=\"image\" style=\"background-image: url('$x'); \"></div>");
+                          print("<div class=\"text\">");
+                        }
                         print("<h2 class=\"heading\">".$info['name']."</h2>");
                         print("<div class=\"price\"><sup>$</sup><span class=\"number\">".$info['cost']."</span><sub>/per night</sub></div>");
                         print("<ul class=\"specs mb-5\">");
@@ -108,18 +102,18 @@
                         print("<button type=\"submit\" class=\"btn btn-primary py-3 px-5\" style=\"border-radius: 6px;\">Book Now</button>");
                         print(" </div></div></form></div>");
                     }
-                    
+
 
 
                 ?>
-              
+
 
             </div>
 
 
 
 
-           
+
 
 
         </div>
