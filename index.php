@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../css/flaticon.css">
     <link rel="stylesheet" href="../css/icomoon.css">
     <link rel="stylesheet" href="../css/style.css">
+
+
 </head>
 
 <body>
@@ -416,7 +418,8 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <h4 class="heading-section">Please fill this form so that it may help us improve ourselves</h4>
-                    <a href="https://goo.gl/forms/C3WuvXOCULSsIQyd2" class="btn btn-primary" style="text-emphasis-color: #1c7ff1; border-radius: 6px; ">Feedback</a>
+                    <a href="../html/form.html" class="btn btn-primary" style="text-emphasis-color: #1c7ff1; border-radius: 6px; ">Feedback</a>
+<!--                    https://goo.gl/forms/C3WuvXOCULSsIQyd2                -->
                 </div>
             </div>
 
@@ -453,6 +456,9 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="../js/google-map.js"></script>
     <script src="../js/main.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
 
 </body>
 
