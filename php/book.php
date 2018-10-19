@@ -135,26 +135,26 @@
                                 <div class="col-md-6 pr-md-6">
 
                                     <div class="form-group">
-                                        <input type="text" id="name" name="name" class="form-control" style="border-radius: 6px;" placeholder="Your Name">
+                                        <input type="text" id="name" name="name" class="form-control" style="border-radius: 6px;" placeholder="Your Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" id="email" name="email" class="form-control" style="border-radius: 6px;" placeholder="Your Email">
+                                        <input type="email" id="email" name="email" class="form-control" style="border-radius: 6px;" placeholder="Your Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" title="10 Digit Phone Number" class="form-control " style="border-radius: 6px;" placeholder="Mobile Number">
+                                        <input type="text" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" title="10 Digit Phone Number" class="form-control " style="border-radius: 6px;" placeholder="Mobile Number" required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="address" id="address" cols="30" rows="7" class="form-control" style="border-radius: 6px;" placeholder="Address"></textarea>
+                                        <textarea name="address" id="address" cols="30" rows="7" class="form-control" style="border-radius: 6px;" placeholder="Address" required></textarea>
                                     </div>
 
 
                                 </div>
                                 <div class="col-md-6 pr-md-6">
                                     <div class="form-group">
-                                        <input type="text" id="cardNumber" name="cardNumber" class="form-control creditCard"  maxlength="19" style="border-radius: 6px;" placeholder="Card Number">
+                                        <input type="text" id="cardNumber" name="cardNumber" class="form-control creditCard"  maxlength="19" style="border-radius: 6px;" placeholder="Card Number" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" id="nameOnCard" name="nameOnCard" class="form-control"  style="border-radius: 6px;" placeholder="Name on the Card">
+                                        <input type="text" id="nameOnCard" name="nameOnCard" class="form-control"  style="border-radius: 6px;" placeholder="Name on the Card" onkeyup="cardName()" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" id="expiryDate" name="expiryDate" class="form-control" style="border-radius: 6px;" placeholder="Expiry Date" required>
@@ -244,6 +244,13 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="../js/google-map.js"></script>
         <script src="../js/main.js"></script>
+        <script>
+            function cardName()
+            {
+                var x=document.getElementById("nameOnCard");
+                x.value=x.value.toUpperCase();
+            }
+        </script>
         <script>
             function update(){
                 var message = jQuery("#count").val();

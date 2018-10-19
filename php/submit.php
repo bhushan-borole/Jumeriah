@@ -32,22 +32,27 @@ if(isset($_POST['name'])){
     //echo "database selection successfull";
     $query = "insert into customer (name, email, phone, card, address, check_in, check_out, room_type, adults, children, cost, countOfRooms)values('$name', '$email', '$mobile', '$card','$address', '$newCheckIn', '$newCheckOut', $id, $adults, $children, $price, $count)";
     if(mysqli_query($conn, $query)){
-        ob_start();
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetFont("helvetica", "B", 14);
-        $pdf->Cell(10, 15, "Your Booking Receipt", 0, 1);
-        $pdf->Cell(10, 15, "Name: {$name}", 0, 1);
-        $pdf->Cell(10, 15, "Email: {$email}", 0, 1);
-        $pdf->Cell(10, 15, "Mobile: {$mobile}", 0, 1);
-        $pdf->Cell(10, 15, "Address: {$address}", 0, 1);
-        $pdf->Cell(10, 15, "Adults: {$email} Children: {$children}", 0, 1);
-        $pdf->Cell(10, 15, "Total Rooms Booked: {$count}", 0, 1);
-        $pdf->Cell(10, 15, "Check-In: {$checkin}", 0, 1);
-        $pdf->Cell(10, 15, "Check-Out: {$checkout}", 0, 1);
-        $pdf->Cell(10, 15, "Total Cost: {$price}", 0, 1);
-        $pdf->output('I', "receipt.pdf");
-        ob_end_flush();
+
+        $query1 = "update table room_type set number=(select number from room_type where id=.$id.)-1 where id=.$id.";
+        if(mysqli_query($conn, $query1)) {
+
+            ob_start();
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont("helvetica", "B", 14);
+            $pdf->Cell(10, 15, "Your Booking Receipt", 0, 1);
+            $pdf->Cell(10, 15, "Name: {$name}", 0, 1);
+            $pdf->Cell(10, 15, "Email: {$email}", 0, 1);
+            $pdf->Cell(10, 15, "Mobile: {$mobile}", 0, 1);
+            $pdf->Cell(10, 15, "Address: {$address}", 0, 1);
+            $pdf->Cell(10, 15, "Adults: {$email} Children: {$children}", 0, 1);
+            $pdf->Cell(10, 15, "Total Rooms Booked: {$count}", 0, 1);
+            $pdf->Cell(10, 15, "Check-In: {$checkin}", 0, 1);
+            $pdf->Cell(10, 15, "Check-Out: {$checkout}", 0, 1);
+            $pdf->Cell(10, 15, "Total Cost: {$price}", 0, 1);
+            $pdf->output('I', "receipt.pdf");
+            ob_end_flush();
+        }
     }
     mysqli_close($conn);
 
