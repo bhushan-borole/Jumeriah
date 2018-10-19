@@ -33,7 +33,7 @@ if(isset($_POST['name'])){
     $query = "insert into customer (name, email, phone, card, address, check_in, check_out, room_type, adults, children, cost, countOfRooms)values('$name', '$email', '$mobile', '$card','$address', '$newCheckIn', '$newCheckOut', $id, $adults, $children, $price, $count)";
     if(mysqli_query($conn, $query)){
 
-        $query1 = "update table room_type set number=(select number from room_type where id=.$id.)-1 where id=.$id.";
+        $query1 = "update room_type set number=number-$count where id=$id";
         if(mysqli_query($conn, $query1)) {
 
             ob_start();
