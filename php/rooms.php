@@ -27,7 +27,7 @@
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand nav-item" href="../index.php"><img src="../images/jumeriah7.png"></a>
+            <a class="navbar-brand nav-item" href="../index.php"><img src="../images/jumeriah2.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -208,30 +208,39 @@
             <div class="row mb-5">
                 <div class="col-md-6 col-lg-4">
                     <h3 class="heading-section">About Us</h3>
-                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt.</p>
+                    <p class="mb-5"> Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities.
+
+</p>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="block-23">
                         <h3 class="heading-section">Contact Info</h3>
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">JUMEIRAH GROUP CORPORATE OFFICE
+                            Level 5, Building 5
+                            Dubai Design District
+                            PO Box 73137
+                            Dubai, UAE</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text"> +971 4 3665000</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text"> info@jumeirah.com</span></a></li>
                             <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
                         </ul>
                     </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <h4 class="heading-section">Please fill this form so that it may help us improve ourselves</h4>
+                    <a href="../html/form.html" class="btn btn-primary" style="text-emphasis-color: #1c7ff1; border-radius: 6px; ">Feedback</a>
+<!--                    https://goo.gl/forms/C3WuvXOCULSsIQyd2                -->
                 </div>
             </div>
 
             <div class="row pt-5">
                 <div class="col-md-12 text-center">
                     <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
                         </script> All rights reserved
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>

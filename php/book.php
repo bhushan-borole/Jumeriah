@@ -19,11 +19,7 @@
     <link rel="stylesheet" href="../css/flaticon.css">
     <link rel="stylesheet" href="../css/icomoon.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .bookform {
-            display: none;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -33,7 +29,7 @@
     <!-- NAV nav -->
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand nav-item" href="../index.php"><img src="../images/jumeriah7.png"></a>
+            <a class="navbar-brand nav-item" href="../index.php"><img src="../images/jumeriah2.png"></a>
 
 
             <div class="collapse navbar-collapse" id="ftco-nav">
@@ -81,7 +77,7 @@
                                     echo "<h2>".$name."<span> Cost: $</span><span id=\"finalPrice\">".$cost."</span></h2>";
                                     ?>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row">
                                 <div class="col-md-6 mb-4 mb-lg-0 col-lg-3">
                                     <label for="checkin">Check In</label>
@@ -161,7 +157,7 @@
                                     </div>
                                     <div class="form-group">
                                         <!-- <textarea name="" id="" cols="30" rows="7" class="form-control" style="border-radius: 6px;" placeholder="Message"></textarea> -->
-                                        <input type="number" id="count" name="count" class="form-control"  style="border-radius: 6px;" placeholder="Number of Rooms" onkeyup="update()">
+                                        <input type="number" id="count" name="count" max="10" class="form-control"  style="border-radius: 6px;" placeholder="Number of Rooms" onkeyup="update()">
                                     </div>
 
 
@@ -172,7 +168,7 @@
                             <div class="row block-11">
                                 <div class="col-md-12 pr-md-6">
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary book_btn" style="border-radius: 6px; width: 100%;" onclick="return checkDate();" value="Book Room"/>
+                                        <input type="submit" class="btn btn-primary book_btn" style="border-radius: 6px; width: 100%;" onclick="return check();" value="Book Room"/>
                                     </div>
                                 </div>
 
@@ -193,18 +189,29 @@
                 <div class="row mb-5">
                     <div class="col-md-6 col-lg-4">
                         <h3 class="heading-section">About Us</h3>
-                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt.</p>
+                        <p class="mb-5"> Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities.
+
+    </p>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="block-23">
                             <h3 class="heading-section">Contact Info</h3>
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                                <li><span class="icon icon-map-marker"></span><span class="text">JUMEIRAH GROUP CORPORATE OFFICE
+                                Level 5, Building 5
+                                Dubai Design District
+                                PO Box 73137
+                                Dubai, UAE</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text"> +971 4 3665000</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text"> info@jumeirah.com</span></a></li>
                                 <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
                             </ul>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <h4 class="heading-section">Please fill this form so that it may help us improve ourselves</h4>
+                        <a href="../html/form.html" class="btn btn-primary" style="text-emphasis-color: #1c7ff1; border-radius: 6px; ">Feedback</a>
+    <!--                    https://goo.gl/forms/C3WuvXOCULSsIQyd2                -->
                     </div>
                 </div>
 
@@ -244,6 +251,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="../js/google-map.js"></script>
         <script src="../js/main.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script>
             function cardName()
             {
@@ -259,7 +267,7 @@
                 console.log(cost);
                 if(message == ""){
                     jQuery("#finalPrice").text(parseInt(cost));
-                    
+
                 }
                 else{
                 jQuery("#finalPrice").text(parseInt(cost)*parseInt(message));
@@ -268,7 +276,7 @@
             }
         </script>
 
-        
+
 </body>
 
 </html>

@@ -48,7 +48,7 @@
 
     <div class="block-31" style="position: relative;">
         <div class="owl-carousel loop-block-31 ">
-            <div class="block-30 item" style="background-image: url('../images/3.jpg');" data-stellar-background-ratio="0.5">
+            <div class="block-30 item" style="background-image: url('../images/hotel.jpg');" data-stellar-background-ratio="0.5">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-10">
@@ -226,14 +226,14 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                     $query = "select * from food where time='breakfast'";
                                     $data = mysqli_query($conn, $query);
                                     while($info = mysqli_fetch_array($data)){
+                                        $x = $info['image'];
                                         print("<div class=\"item\">
                                         <div class=\"block-34\">
                                             <div class=\"image\">
-                                                <a href=\"#\"><img src=\"../images/menu_1.jpg\" alt=\"Image placeholder\"></a>
+                                                <a href=\"#\"><img src=\"$x\" alt=\"Image placeholder\"></a>
                                             </div>
                                             <div class=\"text\">");
                                         print("<h2 class=\"heading\">".$info['name']."</h2>
-                                        <p>&rdquo;".$info['description']."&ldquo;</p>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
 
@@ -260,14 +260,14 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                     $query = "select * from food where time='lunch'";
                                     $data = mysqli_query($conn, $query);
                                     while($info = mysqli_fetch_array($data)){
+                                        $x = $info['image'];
                                         print("<div class=\"item\">
                                         <div class=\"block-34\">
                                             <div class=\"image\">
-                                                <a href=\"#\"><img src=\"../images/menu_1.jpg\" alt=\"Image placeholder\"></a>
+                                                <a href=\"#\"><img src=\"$x\" alt=\"Image placeholder\"></a>
                                             </div>
                                             <div class=\"text\">");
                                         print("<h2 class=\"heading\">".$info['name']."</h2>
-                                        <p>".$info['description']."</p>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
 
@@ -291,14 +291,14 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                     $query = "select * from food where time='dinner'";
                                     $data = mysqli_query($conn, $query);
                                     while($info = mysqli_fetch_array($data)){
+                                        $x = $info['image'];
                                         print("<div class=\"item\">
                                         <div class=\"block-34\">
                                             <div class=\"image\">
-                                                <a href=\"#\"><img src=\"../images/menu_1.jpg\" alt=\"Image placeholder\"></a>
+                                                <a href=\"#\"><img src=\"$x\" alt=\"Image placeholder\"></a>
                                             </div>
                                             <div class=\"text\">");
-                                        print("<h2 class=\"heading\">".$info['name']."</h2>
-                                        <p>".$info['description']."</p>
+                                        print("<h2 class=\"heading\">".$info['name']."</h2> 
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
 

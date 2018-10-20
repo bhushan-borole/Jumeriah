@@ -143,9 +143,8 @@
 
             <div class="row block-9">
                 <div class="col-lg-8 pr-lg-12">
-                  <div id="snackbar">Thank You for the feedback.</div>
-                    <iframe name="w" id="w" style="display:none;"></iframe>
-                    <form id="myForm" method="post" target="w">
+                    <form id="myForm" method="post">
+                        <div id="snackbar">Thank You for the feedback.</div>
                         <div class="form-group">
                             <h5>Name:</h5>
                             <input id="name" name="name" type="text" class="form-control px-3 py-3" style="border-radius: 6px; align-self: center;">
@@ -262,6 +261,15 @@
             var q2 = $("#q2").val();
             var q3 = $("#q3").val();
             var q4 = $("input[type=radio]:checked").val();
+            $.post("../php/form.php", { name: name, email: email, q1: q1, q2: q2, q3: q3, q4: q4 },
+                function(data) {
+                    $('#results').html(data);
+                    $('#myForm')[0].reset();
+                    $('#successinfo').display = 'block';
+                });
+            myFunction();
+        }
+        function myFunction() {
             // Get the snackbar DIV
             var x = document.getElementById("snackbar");
 
@@ -270,16 +278,6 @@
 
             // After 3 seconds, remove the show class from DIV
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-            $.post("../php/form.php", { name: name, email: email, q1: q1, q2: q2, q3: q3, q4: q4 },
-                function(data) {
-                    $('#results').html(data);
-                    $('#myForm')[0].reset();
-                });
-
-
-        }
-        function myFunction() {
-
         }
     </script>
 </body>
