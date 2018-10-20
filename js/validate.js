@@ -21,4 +21,15 @@ $('.creditCard').keyup(function() {
     }
     $(this).val(foo);
 });
+function check1() {
+    var checkin = document.getElementById('checkin_date').value;
+    var checkout = document.getElementById('checkout_date').value;
+    var now = new Date();
+    if (checkin < now || checkout < now || checkin > checkout) {
+        alert("Date must be in the future");
+        return false;
 
+    } else {
+        return true;
+    }
+}

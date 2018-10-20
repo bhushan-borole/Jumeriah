@@ -20,7 +20,46 @@
     <link rel="stylesheet" href="../css/icomoon.css">
     <link rel="stylesheet" href="../css/style.css">
 
+    <style>
+          /* The Modal (background) */
+      .modal {
 
+      display: none; /* Hidden by default */
+      z-index: 100; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 50px;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      }
+    </style>
 </head>
 
 <body>
@@ -45,6 +84,30 @@
         </div>
     </nav>
     <!-- END nav -->
+
+
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>
+            <?php
+                $nameArray = $_SESSION['nameArray'];
+                $count = $_SESSION['countArray'];
+                for($i = 0; $i < count($count); $i++){
+                  echo $nameArray[$i]." : ".$count[$i]." Rooms Availale<br>";
+                }
+            ?>
+        </p>
+      </div>
+
+    </div>
+
+
+
 
     <div class="block-31" style="position: relative;">
         <div class="owl-carousel loop-block-31 ">
@@ -87,7 +150,8 @@
             <div class="col-md-12">
 
                 <div class="block-32">
-                    <form action="../php/checkAvailibility.php">
+                  <iframe name="bl" id="bl" style="display:none;"></iframe>
+                    <form id="check" method="post" target="bl" action="../php/checkAvailibility.php">
                         <div class="row">
                             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                                 <label for="checkin">Check In</label>
@@ -133,7 +197,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3 align-self-end">
-                                <button type="submit" class="btn btn-primary btn-block" style="border-radius: 6px;" onclick=" return checkDate();">Check Availabilty</button>
+                                <button id="checkAvailable" type="submit" class="btn btn-primary btn-block" style="border-radius: 6px;" >Check Availabilty</button>
                             </div>
                         </div>
                     </form>
@@ -298,7 +362,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                                                 <a href=\"#\"><img src=\"$x\" alt=\"Image placeholder\"></a>
                                             </div>
                                             <div class=\"text\">");
-                                        print("<h2 class=\"heading\">".$info['name']."</h2> 
+                                        print("<h2 class=\"heading\">".$info['name']."</h2>
                                         <div class=\"price\"><sup>$</sup><span class=\"number\">".$info['price']."</span></div>");
                                         print("</div></div></div>");
 
@@ -397,9 +461,9 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
             <div class="row mb-5">
                 <div class="col-md-6 col-lg-4">
                     <h3 class="heading-section">About Us</h3>
-                    <p class="mb-5">Jumeirah Hotels and Resorts is a well-established luxury hotel company, which has had a distinct impact on the global hospitality market for the past two decades.  Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities.
+                    <p class="mb-5"> Jumeirah has transformed the way that luxury is defined as exemplified by its flagship hotel, Burj Al Arab Jumeirah.   Today, Jumeirah is a member of Dubai Holding and an acclaimed luxury hospitality leader.  We operate 22 properties in eight countries and employ 13,500 colleagues from across 140 nationalities.
 
-</p>
+                    </p>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="block-23">
@@ -419,7 +483,7 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
                 <div class="col-md-6 col-lg-4">
                     <h4 class="heading-section">Please fill this form so that it may help us improve ourselves</h4>
                     <a href="../html/form.html" class="btn btn-primary" style="text-emphasis-color: #1c7ff1; border-radius: 6px; ">Feedback</a>
-<!--                    https://goo.gl/forms/C3WuvXOCULSsIQyd2                -->
+                    <!--                    https://goo.gl/forms/C3WuvXOCULSsIQyd2                -->
                 </div>
             </div>
 
@@ -458,6 +522,41 @@ Elegantly designed and exquisitely furnished, our 30 beautifully appointed suite
     <script src="../js/main.js"></script>
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
     <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal1');
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("checkAvailable");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+
+      btn.onclick = function () {
+
+          if(check1()){
+              modal.style.display = "block";
+          }
+
+      }
+
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+
+          modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+</script>
 
 
 </body>

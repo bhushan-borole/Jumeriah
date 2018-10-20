@@ -1,3 +1,32 @@
+<?php
+
+session_start();
+
+if(isset($_POST['submit'])) {
+
+    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['code'])) {
+
+        if($_POST['code'] == $_SESSION['rand_code']) {
+
+            // send email
+            include '../php/submit.php';
+            $accept = "Thank you for contacting me.";
+
+        } else {
+
+            $error = "Please verify that you typed in the correct code.";
+
+        }
+
+    } else {
+
+        $error = "Please fill out the entire form.";
+
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -66,6 +95,8 @@
                 <div class="col-md-12">
                     <div class="block-32">
                         <form action="submit.php" method="post">
+                            <?php if(!empty($error)) echo '<div class="error">'.$error.'</div>'; ?>
+                            <?php if(!empty($accept)) echo '<div class="accept">'.$accept.'</div>'; ?>
                             <div class="row">
                                 <div class="col-md-6">
                                 <?php
