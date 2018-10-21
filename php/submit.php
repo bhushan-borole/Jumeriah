@@ -4,6 +4,12 @@
 if(isset($_POST['name'])) {
     require("../fpdf/fpdf.php");
     session_start();
+    print_r($_POST);
+    if(isset($_POST) & !empty($_POST)) {
+        if ($_POST['captcha'] == $_SESSION['code']) {
+
+
+
     $id = $_SESSION["room_id"];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -32,7 +38,7 @@ if(isset($_POST['name'])) {
     $query0 = "select number from room_type where id=$id";
     $data = mysqli_query($conn, $query0);
     while ($info = mysqli_fetch_array($data)) {
-        if($info['number']>0 && $info['number']>$count) {
+        if ($info['number'] > 0 && $info['number'] > $count) {
             //echo "database selection successfull";
             $query = "insert into customer (name, email, phone, card, address, check_in, check_out, room_type, adults, children, cost, countOfRooms)values('$name', '$email', '$mobile', '$card','$address', '$newCheckIn', '$newCheckOut', $id, $adults, $children, $price, $count)";
             if (mysqli_query($conn, $query)) {
@@ -59,14 +65,15 @@ if(isset($_POST['name'])) {
                 }
             }
         }
-        else{
-            $message = "wrong answer";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
         mysqli_close($conn);
 
 
     }
+        } else {$message = "wrong captcha entered";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+    }
+
 }
 ?>
 </body>

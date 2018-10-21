@@ -1,32 +1,4 @@
-<?php
 
-session_start();
-
-if(isset($_POST['submit'])) {
-
-    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['code'])) {
-
-        if($_POST['code'] == $_SESSION['rand_code']) {
-
-            // send email
-            include '../php/submit.php';
-            $accept = "Thank you for contacting me.";
-
-        } else {
-
-            $error = "Please verify that you typed in the correct code.";
-
-        }
-
-    } else {
-
-        $error = "Please fill out the entire form.";
-
-    }
-
-}
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -95,8 +67,6 @@ if(isset($_POST['submit'])) {
                 <div class="col-md-12">
                     <div class="block-32">
                         <form action="submit.php" method="post">
-                            <?php if(!empty($error)) echo '<div class="error">'.$error.'</div>'; ?>
-                            <?php if(!empty($accept)) echo '<div class="accept">'.$accept.'</div>'; ?>
                             <div class="row">
                                 <div class="col-md-6">
                                 <?php
@@ -190,8 +160,11 @@ if(isset($_POST['submit'])) {
                                         <!-- <textarea name="" id="" cols="30" rows="7" class="form-control" style="border-radius: 6px;" placeholder="Message"></textarea> -->
                                         <input type="number" id="count" name="count" max="10" class="form-control"  style="border-radius: 6px;" placeholder="Number of Rooms" onkeyup="update()">
                                     </div>
+                                    <div class="form-group">
 
+                                        <img src="../php/captcha.php" /><input type="text" name="captcha" />
 
+                                    </div>
                                 </div>
 
                             </div>
@@ -282,7 +255,6 @@ if(isset($_POST['submit'])) {
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="../js/google-map.js"></script>
         <script src="../js/main.js"></script>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script>
             function cardName()
             {
